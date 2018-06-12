@@ -1,0 +1,35 @@
+{% include 'main.html' %}
+
+
+
+{% block article  %}
+<div class="container">
+     <h3 class="darkblue" > Dostępne artykuły </h3>
+
+<form method='GET' action=''>
+                <input type='text' name='q' placeholder='Szukaj' value='{{ request.GET.q }}'/>
+                <input type='submit' value='Search'/>
+            </form>
+{% if articles.count > 0 %}
+{% for article in articles %}
+</div>
+<div class="container"><!--  Artykul -->
+                    <hr>
+                    <h2><a class="black" href="/article/{{ article.id }}/">{{ article.title }}</a></h2>
+                    <p> Autor:  {{ article.user }}</p>
+                    <div class="article-info">
+                        Opublikowano : {{ article.published }}
+                    </div>
+    {% if article.image %}
+                    <img src="{{ article.image.url }}" width="350" class="article-img img-rounded">
+    {% endif %}
+                    <div class="article-intro">
+                        <p> {{ article.content | truncatewords:50}} </p>
+                    </div>
+</div>
+{% endfor %}
+
+{% else %}
+<h2>Brak artykułów</h2>
+{% endif %}
+{% endblock %}

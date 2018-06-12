@@ -1,0 +1,10 @@
+{% include 'main.html' %}
+{% block content %}
+<div class="container">
+    <h1>Nowy Blog</h1>
+    <form method="POST" enctype='multipart/form-data' class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Zapisz</button>
+    </form>
+    </div>
+{% endblock %}

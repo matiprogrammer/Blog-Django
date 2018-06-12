@@ -1,0 +1,23 @@
+{% include 'auth/../../templates/base.html' %}
+{% block blog %}
+
+<h2>{{ title }}</h2>
+                    <div class="article-info">
+                        Tworca : {{ user.username }}
+                    </div>
+<form method='GET' action=''>
+                <input type='text' name='q' placeholder='Szukaj' value='{{ request.GET.q }}'/>
+                <input type='submit' value='Search'/>
+            </form>
+{% for article in blog %}
+
+<div class="articles"><!--  Artykul -->
+                    <hr>
+                    <h2><a href="/article/{{ article.id }}/">{{ article.title }}</a></h2>
+                    <div class="article-info">
+                        Opublikowano : {{ article.published }}
+                    </div>
+
+</div>
+{% endfor %}
+{% endblock %}

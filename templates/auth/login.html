@@ -1,0 +1,91 @@
+
+
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="utf-8">
+    <title>Blog projekt django</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+</head>
+
+<body>
+
+<div class="container" id="wrapper">
+
+    <div class="row"><!--  PASEK GORA -->
+        <div class="topbar">
+            <div class="logo pull-left">
+                <h1><a href="#"><img src="{% static 'img/blogging.jpg' %}" width=400></a></h1>
+            </div>
+            <div class="topbar-links pull-right">
+
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row"><!-- Menu -->
+        <div id="mainmenu" class="navbar navbar-inverse">
+                <div class="navbar-inner">
+
+                    <div>
+                        <ul class="nav">
+
+
+
+                        </ul>
+                    </div>
+
+
+                </div>
+        </div>
+    </div>
+
+    <div class="row"><!-- Glowna czesc -->
+
+        <div class="span9"><!-- Lewa kolumna -->
+            <div  class="row latest"><!-- Najnowsze art -->
+
+<form method="POST">
+    {% csrf_token %}
+    <label for="username">Username</label>
+    <input type="text" name="username" value="" id="username" required>
+    <label for="password"> Password</label>
+    <input type="password" name="password" value="" id="password" required>
+    <p style ="color:red" >{{ error }}</p>
+    <button type="submit"  >Login</button>
+</form>
+                    </div>
+     </div>
+
+            </div><!--  Koniec najnowszych art -->
+
+            <div class="row"><!-- Artykuly lista -->
+
+
+            </div><!--  Koniec listy art -->
+
+        </div><!-- Koniec lewej kolumny -->
+
+
+
+        <div class="span3"><!-- Prawa kolumna -->
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</body>
+
+
+</html>

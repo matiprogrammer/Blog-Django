@@ -1,0 +1,10 @@
+{% extends 'main.html' %}
+
+{% block article %}
+    <h3>Rejestracja</h3>
+<form  method="POST">
+    {% csrf_token %}
+    {{ form }}
+    <button type="submit" >zarejestruj</button>
+</form>
+{% endblock %}

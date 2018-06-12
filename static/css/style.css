@@ -1,0 +1,75 @@
+
+.container {
+padding-left: 0px auto;
+}
+.center-block {
+  width: 50%;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.topbar-links {
+	line-height: 18px;
+	margin-top: 40px;
+}
+
+.latest-article {
+	font-size: .9em;
+	margin-left: 45px;
+	margin-top: 25px;
+} 
+
+.latest-article img {
+	margin-bottom: 10px;
+}
+
+.article-info {
+	margin-bottom: 10px;
+}
+
+.latest-article:first-child {
+	margin-left: 0 !important;
+}
+
+
+
+.article-intro {
+	margin-top: 20px;
+	margin: 0px auto;
+}
+
+.art-more {
+	margin-bottom: 15px;
+}
+
+hr {
+	color: rgb(47, 164, 231);
+	background-color: rgb(47, 164, 231);
+	height: 4px;
+}
+b {
+    font-size: .9em;
+}
+.darkblue {
+color: rgb(0, 0, 96);
+}
+.black {
+color: rgb(0, 0, 0);
+}
+.float-left {
+float:left;
+}
+
+.form-wrapper {
+	width: 70%;
+	margin: 0 auto;
+}
+
+.left_col {
+	min-height: 500px;
+}
+
+body {
+
+        margin-left: 100px;
+        }

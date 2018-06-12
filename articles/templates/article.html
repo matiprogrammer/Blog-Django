@@ -1,0 +1,25 @@
+{% extends 'main.html' %}
+{% block article  %}
+
+<h2>{{ article.title }}</h2>
+                    <div class="article-info">
+                        Opublikowano : {{ article.published }}
+                    </div>
+                    {% if article.image %}
+                    <img src="{{ article.image.url }}" class="article-img">
+                    {% endif %}
+                    <div class="article-intro">
+                    <p>{{ article.content  }}</p>
+                    </div>
+                    <hr>
+                    <h3>Komentarze</h3><!-- Komentarze -->
+                    {% for c in article.comment_set.all %}
+                    <div class="comment">
+                        <p><b><font size="3.5" ><span>Użytkownik:  <em>{{ c.user }}</em></span></font></b></p>
+                        <p><b><em>Opublikowano : {{ c.published }}</em></b></p>
+                        <p>{{ c.content }}</p>
+                    </div>
+                    {% endfor %}
+                    <h4><a href="/article/{{ article.id }}/addcomment">Dodaj komentarz</a></h4>
+
+{% endblock %}

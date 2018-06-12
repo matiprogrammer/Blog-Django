@@ -1,0 +1,14 @@
+﻿ZROBIONE
+-dodac form do zakladania blogow DONE
+-poprawc dodawanie postow aby zawierały dołączenie do blogu  DONE
+-wyszukiwanie
+-w dodawaniu artykulu musi wyswietlac sie tylko te blogi ktore sa w posiadaniu danego uzytkownika
+-zabezpieczyc ze jesli uzytkownik nie ma bloga to nie moze napisac posta
+DO ZROBIENIA
+-artykuly na hasło 
+
+ZABEZPIECZENIA
+
+
+-zabezpieczenie apki ogolne (ja troche zabezpieczyłem ale moze być ze cos pominalem)
+

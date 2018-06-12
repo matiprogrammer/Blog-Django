@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<body>
+	<title>Blog</title>
+	<script >
+		var checkDisplay = function(check, form) { //check ID, form ID
+			form = document.getElementById(form), check = document.getElementById(check);
+			check.onclick = function(){
+				form.style.display = (this.checked) ? "block" : "none";
+				form.reset();
+			};
+			check.onclick();
+		};
+
+
+
+
+function ChangeCarList(title) {
+
+var blogList = document.getElementById("blogs");
+var option = document.createElement("option");
+
+option.text=title;
+blogList.options.add(option);
+
+}
+</script>
+</body>
+
+
+{% include 'main.html' %}
+{% block content %}
+{%if user_blogs  %}
+<div class="container">
+    <h1>Nowy artykul</h1>
+    <form method="POST" enctype='multipart/form-data' class="post-form">{% csrf_token %}
+        {{ form.as_p }}
+        <select name="user_blogs" id="blogs" ></select>
+
+        {%for blog in user_blogs %}
+        <script >
+	    ChangeCarList("{{blog.title}}");
+	    </script>
+        {%endfor%}
+
+       <label >Post chroniony  <input type="checkbox" name="isProtected" value="True" id="check" /></label>
+		<input type="text" name="password" placeholder='Hasło'   id="form" />
+
+        <p></p><p></p><p></p>
+        <p><button type="submit" class="save btn btn-default">Zapisz</button></p>
+
+
+        <script >
+	    checkDisplay("check", "form");
+	    </script>
+</form>
+{%else%}
+<p class="container">Aby dodać post musisz mieć bloga!</p>
+{%endif%}
+    </div>
+{% endblock %}
+</html>

@@ -1,0 +1,27 @@
+{% include 'base.html' %}
+
+{% block blog  %}
+<div class="container">
+    <h2 class="darkblue" > Dostępne blogi </h2>
+<form method='GET' action=''>
+                <input type='text' name='q' placeholder='Szukaj blogów' value='{{ request.GET.q }}'/>
+                <input type='submit' value='Search'/>
+            </form>
+</div>
+{% if blogs.count > 0 %}
+{% for blog in blogs  %}
+
+<div class="container"><!--  Artykul -->
+                    <hr>
+                    <h2><a class="black" href="/blog/{{ blog.id }}/">{{ blog.title }}</a></h2>
+                    <div class="article-info">
+                       <b> Stworzony przez: {{ blog.user.username }}</b>
+
+                    </div>
+</div>
+{% endfor %}
+{% else %}
+<p>Brak blogow</p>
+{% endif %}
+
+{% endblock %}
