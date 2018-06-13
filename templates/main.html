@@ -64,9 +64,11 @@
                 {%if allarticles%}
                 <h2 class="darkblue" > Najnowsze artykuły </h2>
                 {%endif%}
-                {% for article in allarticles %}
+                {% for article in newest|slice:":4" %}
+
         <div class="span3 latest-article" id="first-art">
                     <div class="latest-article-wrap">
+                        <p><strong>{{article.title }}</strong></p>
                         {% if article.image %}
                         <a href="#"><img src="{{article.image.url  }}" class="img-rounded"></a>
                         {% endif %}
@@ -74,6 +76,7 @@
                         <a href="/article/{{ article.id }}/   " class="label label-info pull-right">Więcej</a>
                     </div>
         </div>
+
                 {% endfor  %}
                 {% endblock %}
             </div ><!--  Koniec najnowszych art -->

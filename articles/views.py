@@ -38,14 +38,16 @@ def post_new(request):
 
 @login_required(login_url="/login/")
 def articles(request):
+    newest =Articles.objects.order_by('-published')
+
     query = request.GET.get("q")
     if query:
-        return render_to_response('articles.html', {'allarticles':Articles.objects.all(),'user': request.user,'articles': Articles.objects.filter(
+        return render_to_response('articles.html', {'newest':newest, 'allarticles':Articles.objects.all(),'user': request.user,'articles': Articles.objects.filter(
             Q(title__icontains=query) |
-            Q(content__icontains=query)
+            Q(user__username__icontains=query)
         ).distinct()})
     else:
-        return render_to_response('articles.html', {'allarticles':Articles.objects.all(),'user': request.user,'articles': Articles.objects.all()})
+        return render_to_response('articles.html', {'newest':newest, 'allarticles':Articles.objects.all(),'user': request.user,'articles': Articles.objects.all()})
 
 @login_required(login_url="/login/")
 def article(request, article_id, comesFromComment = False):
